@@ -3,20 +3,14 @@ var app = express();
 var cors = require('cors');
 app.use(express.json());
 
-var corsOptions = {
-    origin: 'http://localhost:3000',
-    optionsSuccessStatus: 200
-}
-
 var books = [
     { title: 'Harry Potter', id: 1 },
     { title: 'Twilight', id: 2 },
     { title: 'Lorien Legacies', id: 3 }
 ]
 
-app.get('/books', cors(corsOptions), (req, res) => {
+app.get('/books', (req, res) => {
     res.status(200).json(books);
-    // res.send(JSON.parse(books));
 })
 
 app.post('/add', (req, res) => {
